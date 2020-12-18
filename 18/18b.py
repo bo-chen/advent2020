@@ -12,17 +12,15 @@ with open('./input.txt') as fp:
 def eval(l):
     #print("eval", l)
     depth = 0
-    iparens = False
+    parens = False
     begin = 0
     end = 0
-    i = 0
-    while True:
-        if i >= len(l):
-            break
+    # find the first outer set of parens first
+    for i in range(len(l)):
         c = l[i]
         if c == "(":
             depth += 1
-            iparens = True
+            parens = True
             if depth == 1:
                 begin = i+1
         elif c == ")":
@@ -32,9 +30,8 @@ def eval(l):
                 break
             if depth < 0:
                 print("bad3")
-        i += 1
 
-    if iparens:
+    if parens:
         # eval the outer parens and redo
         n = eval(l[begin:end])
         s = l[0:begin-1] + str(n) + l[end+1:]
@@ -58,7 +55,3 @@ for l in ls:
     t += n
 
 print(t)
-
-
-
-
