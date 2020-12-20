@@ -153,7 +153,7 @@ with open('./dragon.txt') as fp:
             j += 1
         lind += 1
 
-dragonsum =np.sum(dragon)
+dragonsum = np.sum(dragon)
 #print("dragon sum", dragonsum)
 #print(dragon)
 
